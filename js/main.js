@@ -9,16 +9,23 @@ const preloader = document.getElementById('preloader');
 const loadPercent = document.getElementById('loadPercent');
 const cursor = document.getElementById('cursor');
 
+const preloaderStartedAt = performance.now();
+const minimumPreloaderDuration = 2600;
 let loaded = 0;
 const loadingTimer = setInterval(() => {
-  loaded = Math.min(loaded + Math.ceil(Math.random() * 12), 96);
+  loaded = Math.min(loaded + Math.ceil(Math.random() * 4), 94);
   loadPercent.textContent = `${String(loaded).padStart(2, '0')}%`;
-}, 55);
+}, 80);
 
 window.addEventListener('load', () => {
   clearInterval(loadingTimer);
-  loadPercent.textContent = '100%';
-  setTimeout(() => preloader.classList.add('is-hidden'), 280);
+  const elapsed = performance.now() - preloaderStartedAt;
+  const remaining = Math.max(0, minimumPreloaderDuration - elapsed);
+
+  setTimeout(() => {
+    loadPercent.textContent = '100%';
+    setTimeout(() => preloader.classList.add('is-hidden'), 400);
+  }, remaining);
 });
 
 year.textContent = new Date().getFullYear();

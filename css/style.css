@@ -84,9 +84,9 @@ a {
   flex-direction: column;
   justify-content: space-between;
   padding: var(--pad);
-  color: var(--ink);
-  background: var(--white);
-  transition: transform .9s var(--ease), visibility .9s;
+  color: var(--white);
+  background: var(--ink);
+  transition: transform 1s var(--ease), visibility 1s;
 }
 
 .preloader.is-hidden {
@@ -97,17 +97,19 @@ a {
 .preloader-mark {
   align-self: center;
   display: flex;
+  gap: clamp(12px, 1.5vw, 28px);
   overflow: hidden;
   margin-top: auto;
   margin-bottom: auto;
   font-size: clamp(110px, 24vw, 360px);
   font-weight: 300;
   line-height: .7;
-  letter-spacing: -.14em;
+  letter-spacing: -.05em;
 }
 
 .preloader-mark span {
   display: block;
+  padding: 0 .03em;
   animation: loaderLetter 1s var(--ease) both;
 }
 
@@ -116,7 +118,7 @@ a {
 .preloader-bottom {
   display: flex;
   justify-content: space-between;
-  border-top: 1px solid var(--ink);
+  border-top: 1px solid var(--white);
   padding-top: 10px;
   font-family: "DM Mono", monospace;
   font-size: 10px;
