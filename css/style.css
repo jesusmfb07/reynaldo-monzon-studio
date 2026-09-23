@@ -794,15 +794,35 @@ a {
 }
 
 .studio-portrait {
+  position: relative;
   min-height: 800px;
   overflow: hidden;
+  background: #080808;
 }
 
-.studio-portrait img {
+.studio-portrait-main {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
+}
+
+.studio-portrait-detail {
+  position: absolute;
+  right: clamp(18px, 3vw, 48px);
+  bottom: clamp(18px, 3vw, 48px);
+  width: min(34%, 250px);
+  margin: 0;
+  padding: 6px;
+  background: var(--ink);
+}
+
+.studio-portrait-detail img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1.15;
+  object-fit: cover;
+  object-position: 67% center;
 }
 
 .studio-copy {
@@ -1233,7 +1253,7 @@ a {
     min-height: auto;
   }
 
-  .studio-portrait img {
+  .studio-portrait-main {
     height: auto;
     aspect-ratio: .85 / 1;
   }
@@ -1348,7 +1368,14 @@ a {
   .archive-info { display: block; }
   .archive-info small { display: block; margin-top: 3px; }
 
-  .studio-portrait img { aspect-ratio: .82 / 1; }
+  .studio-portrait-main { aspect-ratio: .82 / 1; }
+
+  .studio-portrait-detail {
+    right: var(--pad);
+    bottom: var(--pad);
+    width: 36%;
+    padding: 4px;
+  }
 
   .process-track {
     width: calc(100% + var(--pad));

@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=5">
+  <link rel="stylesheet" href="css/style.css?v=6">
 </head>
 <body>
   <a class="skip-link" href="#contenido">Ir al contenido</a>
@@ -70,7 +70,7 @@
 
     <section class="intro" aria-label="Introducción">
       <p class="eyebrow">El estudio</p>
-      <p class="intro-statement">Un universo visual donde lo cotidiano, lo íntimo y lo andino se encuentran en color.</p>
+      <p class="intro-statement">Su obra explora el encuentro entre lo cotidiano y lo íntimo, construyendo un universo de color donde las emociones, las experiencias y la identidad adquieren una nueva dimensión.</p>
       <div class="intro-meta">
         <span>Pintura</span>
         <span>Ilustración</span>
@@ -114,9 +114,9 @@
           <span class="work-info"><b>Mirada</b><small>Ilustración</small><i>05</i></span>
         </button>
 
-        <button class="work work-portrait" type="button" data-lightbox="assets/images/obra-retrato.webp" data-caption="Trama · Ilustración">
-          <span class="work-image"><img src="assets/images/obra-retrato.webp" alt="Ilustración monocromática de una figura conectada por hilos"></span>
-          <span class="work-info"><b>Trama</b><small>Ilustración</small><i>06</i></span>
+        <button class="work work-portrait" type="button" data-lightbox="assets/images/retrato-violeta.jpg" data-caption="Trama · Pintura">
+          <span class="work-image"><img src="assets/images/retrato-violeta.jpg" alt="Pintura de una figura entrelazada con trenzas e hilos sobre fondo violeta"></span>
+          <span class="work-info"><b>Trama</b><small>Pintura</small><i>06</i></span>
         </button>
       </div>
     </section>
@@ -158,7 +158,7 @@
       </div>
 
       <div class="archive-heading" id="archivo">
-        <p class="eyebrow">Archivo expandido · 10 registros</p>
+        <p class="eyebrow">Archivo expandido · 13 registros</p>
         <p>Obra gráfica, espacio público, procesos y otras exploraciones.</p>
       </div>
 
@@ -199,16 +199,31 @@
           <span class="archive-image"><img src="assets/images/experimento-luz.jpg" alt="Composición simétrica de una escultura iluminada en amarillo y verde" loading="lazy"></span>
           <span class="archive-info"><b>Dualidad</b><small>Experimentación · 09</small></span>
         </button>
-        <button class="archive-card" type="button" data-lightbox="assets/images/estudio-figura.jpg" data-caption="Equilibrio · Estudio de forma">
-          <span class="archive-image"><img src="assets/images/estudio-figura.jpg" alt="Figura escultórica con formas orgánicas y elementos en equilibrio" loading="lazy"></span>
-          <span class="archive-info"><b>Equilibrio</b><small>Estudio · 10</small></span>
+        <button class="archive-card archive-landscape" type="button" data-lightbox="assets/images/reynaldo-en-proceso.jpg" data-caption="En proceso · Registro de taller">
+          <span class="archive-image"><img src="assets/images/reynaldo-en-proceso.jpg" alt="Reynaldo Monzón trabajando frente a una obra iluminada" loading="lazy"></span>
+          <span class="archive-info"><b>En proceso</b><small>Taller · 10</small></span>
+        </button>
+        <button class="archive-card archive-landscape" type="button" data-lightbox="assets/images/mural-interior.jpg" data-caption="Intervención mural · Espacio interior">
+          <span class="archive-image"><img src="assets/images/mural-interior.jpg" alt="Mural de gran formato integrado en el interior de un restaurante" loading="lazy"></span>
+          <span class="archive-info"><b>Intervención mural</b><small>Mural · 11</small></span>
+        </button>
+        <button class="archive-card" type="button" data-lightbox="assets/images/figura-alada.jpg" data-caption="Figura alada · Ensamblaje">
+          <span class="archive-image"><img src="assets/images/figura-alada.jpg" alt="Figura escultórica azul con alas, elementos metálicos y objetos ensamblados" loading="lazy"></span>
+          <span class="archive-info"><b>Figura alada</b><small>Ensamblaje · 12</small></span>
+        </button>
+        <button class="archive-card archive-landscape" type="button" data-lightbox="assets/images/personajes-escultoricos.jpg" data-caption="Personajes · Serie escultórica">
+          <span class="archive-image"><img src="assets/images/personajes-escultoricos.jpg" alt="Conjunto de personajes escultóricos modelados y pintados a mano" loading="lazy"></span>
+          <span class="archive-info"><b>Personajes</b><small>Escultura · 13</small></span>
         </button>
       </div>
     </section>
 
     <section class="studio" id="estudio" aria-labelledby="studioTitle">
       <div class="studio-portrait reveal">
-        <img src="assets/images/reynaldo-monzon-artista.webp" alt="Reynaldo Monzón frente a dos de sus obras">
+        <img class="studio-portrait-main" src="assets/images/reynaldo-retrato-estudio.jpg" alt="Retrato de perfil de Reynaldo Monzón">
+        <figure class="studio-portrait-detail">
+          <img src="assets/images/reynaldo-retrato-cercano.jpg" alt="Primer plano de Reynaldo Monzón">
+        </figure>
       </div>
       <div class="studio-copy">
         <p class="eyebrow">C — El artista</p>
@@ -258,11 +273,11 @@
       </div>
     </section>
 
-    <section class="feature" aria-label="Mural destacado">
-      <img src="assets/images/mural-cusqueno.webp" alt="Reynaldo Monzón frente a un mural de inspiración cusqueña">
+    <section class="feature" aria-label="Retrato del artista">
+      <img src="assets/images/reynaldo-monzon-artista.webp" alt="Reynaldo Monzón frente a dos de sus obras">
       <div class="feature-caption">
-        <p><span>Muralismo</span><span>Cusco, Perú</span></p>
-        <strong>El muro como<br>memoria colectiva.</strong>
+        <p><span>Reynaldo Monzón</span><span>Cusco, Perú</span></p>
+        <strong>El arte como<br>territorio íntimo.</strong>
       </div>
     </section>
 
