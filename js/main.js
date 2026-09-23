@@ -98,7 +98,7 @@ const revealObserver = new IntersectionObserver(entries => {
   });
 }, { threshold: 0.12, rootMargin: '0px 0px -5% 0px' });
 
-document.querySelectorAll('.intro, .work, .process-card').forEach(element => {
+document.querySelectorAll('.intro, .work, .art-card, .archive-card, .process-card').forEach(element => {
   revealObserver.observe(element);
 });
 
@@ -128,7 +128,7 @@ if (window.matchMedia('(pointer: fine)').matches) {
     element.addEventListener('mouseleave', () => cursor.classList.remove('hovering'));
 
     element.addEventListener('mousemove', event => {
-      if (element.classList.contains('work')) return;
+      if (element.matches('.work, .art-card, .archive-card')) return;
       const bounds = element.getBoundingClientRect();
       const x = event.clientX - bounds.left - bounds.width / 2;
       const y = event.clientY - bounds.top - bounds.height / 2;
@@ -140,7 +140,7 @@ if (window.matchMedia('(pointer: fine)').matches) {
     });
   });
 
-  document.querySelectorAll('.work').forEach(work => {
+  document.querySelectorAll('.work, .art-card, .archive-card').forEach(work => {
     work.addEventListener('mouseenter', () => cursor.classList.add('viewing'));
     work.addEventListener('mouseleave', () => cursor.classList.remove('viewing'));
   });

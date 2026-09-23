@@ -315,11 +315,29 @@ a {
   inset: 0;
 }
 
+.hero-media {
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: #000;
+}
+
+.hero-media::before {
+  content: "";
+  position: absolute;
+  inset: -36px;
+  background: url("../assets/images/mural-cusqueno.webp") center 43% / cover no-repeat;
+  filter: blur(24px) brightness(.42) saturate(.85);
+  transform: scale(1.08);
+}
+
 .hero-media img {
+  position: relative;
+  z-index: 1;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: center 43%;
+  object-fit: contain;
+  object-position: center;
   animation: heroScale 1.8s var(--ease) both;
 }
 
@@ -590,6 +608,182 @@ a {
   font-style: normal;
   text-transform: uppercase;
 }
+
+.material {
+  padding: clamp(90px, 12vw, 180px) var(--pad);
+  background: #0a0a0a;
+  border-top: 1px solid var(--line);
+}
+
+#materialTitle,
+#archivo { scroll-margin-top: 110px; }
+
+.material-heading { margin-bottom: clamp(70px, 10vw, 150px); }
+
+.material-heading h2 {
+  margin-top: 22px;
+  font-size: clamp(58px, 10vw, 148px);
+  font-weight: 300;
+  line-height: .82;
+  letter-spacing: -.075em;
+  text-transform: uppercase;
+}
+
+.sculpture-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: clamp(22px, 4vw, 60px);
+  align-items: start;
+}
+
+.art-card,
+.archive-card {
+  display: block;
+  color: var(--white);
+  text-align: left;
+  background: transparent;
+  border: 0;
+  opacity: 0;
+  transform: translateY(90px);
+  transition: opacity .9s var(--ease), transform .9s var(--ease);
+}
+
+.art-card.is-visible,
+.archive-card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.art-card-large { grid-column: 1 / span 7; }
+.art-card-tall { grid-column: 9 / span 4; margin-top: 12vw; }
+.art-card-portrait { grid-column: 2 / span 5; margin-top: 4vw; }
+.art-card-shift { grid-column: 8 / span 5; margin-top: -5vw; }
+.art-card-cinematic { grid-column: 3 / span 8; margin-top: 5vw; }
+
+.art-card-image,
+.archive-image {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  background: #151515;
+}
+
+.art-card-image::before,
+.archive-image::before {
+  content: "Ver obra ↗";
+  position: absolute;
+  z-index: 3;
+  right: 14px;
+  bottom: 14px;
+  padding: 8px 10px;
+  color: #000;
+  background: #fff;
+  font-family: "DM Mono", monospace;
+  font-size: 9px;
+  text-transform: uppercase;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity .3s ease, transform .3s var(--ease);
+}
+
+.art-card-image::after,
+.archive-image::after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  background: linear-gradient(105deg, transparent 35%, rgba(255, 255, 255, .2) 50%, transparent 65%);
+  transform: translateX(-120%);
+  transition: transform .8s var(--ease);
+}
+
+.art-card:hover .art-card-image::before,
+.archive-card:hover .archive-image::before {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.art-card:hover .art-card-image::after,
+.archive-card:hover .archive-image::after { transform: translateX(120%); }
+
+.art-card img,
+.archive-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .8s var(--ease), filter .5s ease;
+}
+
+.art-card:hover img,
+.archive-card:hover img {
+  filter: saturate(1.08) contrast(1.03);
+  transform: scale(1.035);
+}
+
+.art-card-large .art-card-image { aspect-ratio: 1 / 1; }
+.art-card-tall .art-card-image,
+.art-card-portrait .art-card-image { aspect-ratio: .8 / 1; }
+.art-card-cinematic .art-card-image { aspect-ratio: 1.45 / 1; }
+.art-card-cinematic img { object-fit: contain; object-position: center; }
+
+.art-card-info,
+.archive-info {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: baseline;
+  gap: 16px;
+  padding-top: 13px;
+  border-top: 1px solid rgba(255, 255, 255, .75);
+  transition: color .3s ease, padding-left .3s var(--ease);
+}
+
+.art-card:hover .art-card-info,
+.archive-card:hover .archive-info {
+  color: #aaa;
+  padding-left: 8px;
+}
+
+.art-card-info b,
+.archive-info b { font-size: 13px; font-weight: 600; }
+
+.art-card-info small,
+.art-card-info i,
+.archive-info small {
+  font-family: "DM Mono", monospace;
+  font-size: 9px;
+  font-style: normal;
+  text-transform: uppercase;
+}
+
+.archive-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 30px;
+  margin-top: clamp(130px, 18vw, 270px);
+  margin-bottom: 45px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+
+.archive-heading > p:last-child {
+  max-width: 350px;
+  color: #999;
+  font-size: 13px;
+}
+
+.archive-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(38px, 5vw, 76px) clamp(14px, 2vw, 28px);
+  align-items: start;
+}
+
+.archive-image { aspect-ratio: 1 / 1.18; }
+.archive-landscape .archive-image { aspect-ratio: 1.25 / 1; }
+.archive-info { grid-template-columns: 1fr auto; gap: 8px; }
+.archive-card:nth-child(4n + 2) { margin-top: 65px; }
+.archive-card:nth-child(4n + 4) { margin-top: 110px; }
 
 .studio {
   display: grid;
@@ -1026,6 +1220,11 @@ a {
 
   .intro-meta { margin-top: 25px; }
 
+  .archive-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .archive-card:nth-child(4n + 2),
+  .archive-card:nth-child(4n + 4) { margin-top: 0; }
+  .archive-card:nth-child(3n + 2) { margin-top: 60px; }
+
   .studio {
     grid-template-columns: 1fr;
   }
@@ -1043,7 +1242,12 @@ a {
 @media (max-width: 680px) {
   .brand-name { display: none; }
 
-  .hero-media img { object-position: 58% center; }
+  .hero-media::before { display: none; }
+
+  .hero-media img {
+    object-fit: cover;
+    object-position: 58% center;
+  }
 
   .hero-content { padding-top: 110px; }
 
@@ -1102,6 +1306,48 @@ a {
 
   .work-info small { display: none; }
 
+  .sculpture-grid { display: block; }
+
+  .art-card,
+  .art-card-tall,
+  .art-card-portrait,
+  .art-card-shift,
+  .art-card-cinematic {
+    width: 100%;
+    margin: 0 0 78px;
+  }
+
+  .art-card:nth-child(even) {
+    width: 84%;
+    margin-left: auto;
+  }
+
+  .art-card-cinematic .art-card-image {
+    aspect-ratio: .8 / 1;
+  }
+
+  .art-card-cinematic img { object-fit: cover; }
+
+  .archive-heading {
+    display: block;
+    margin-top: 120px;
+  }
+
+  .archive-heading > p:last-child { margin-top: 14px; }
+
+  .archive-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 12px;
+    row-gap: 44px;
+  }
+
+  .archive-card,
+  .archive-card:nth-child(3n + 2) { margin-top: 0; }
+
+  .archive-card:nth-child(even) { margin-top: 55px; }
+  .archive-info { display: block; }
+  .archive-info small { display: block; margin-top: 3px; }
+
   .studio-portrait img { aspect-ratio: .82 / 1; }
 
   .process-track {
@@ -1159,6 +1405,8 @@ a {
 
   .intro > *,
   .work,
+  .art-card,
+  .archive-card,
   .process-card { opacity: 1; transform: none; }
 }
 
