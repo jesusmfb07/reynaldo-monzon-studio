@@ -96,17 +96,15 @@ a {
 
 .preloader-mark {
   align-self: center;
-  display: block;
+  width: clamp(260px, 46vw, 680px);
   margin-top: auto;
   margin-bottom: auto;
-  color: #ffffff;
-  font-family: "DM Mono", monospace;
-  font-size: clamp(110px, 22vw, 330px);
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: .04em;
-  white-space: nowrap;
   animation: loaderLetter 1s var(--ease) both;
+}
+
+.preloader-mark img {
+  width: 100%;
+  height: auto;
 }
 
 .preloader-bottom {
@@ -607,6 +605,28 @@ a {
   font-size: 10px;
   font-style: normal;
   text-transform: uppercase;
+}
+
+main > section {
+  position: relative;
+}
+
+main > section::before {
+  content: "";
+  position: absolute;
+  z-index: 5;
+  right: var(--pad);
+  bottom: clamp(14px, 2vw, 28px);
+  width: clamp(66px, 6vw, 94px);
+  aspect-ratio: 5 / 3;
+  background: url("../assets/images/monzon-corona.png") center / contain no-repeat;
+  opacity: .48;
+  pointer-events: none;
+}
+
+.hero::before,
+.feature::before {
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, .75));
 }
 
 .material {
@@ -1368,7 +1388,10 @@ a {
   .archive-info { display: block; }
   .archive-info small { display: block; margin-top: 3px; }
 
-  .studio-portrait-main { aspect-ratio: .82 / 1; }
+  .studio-portrait-main {
+    aspect-ratio: .82 / 1;
+    object-position: right center;
+  }
 
   .studio-portrait-detail {
     right: var(--pad);
@@ -1395,6 +1418,7 @@ a {
 
   .feature-caption {
     display: block;
+    bottom: 88px;
   }
 
   .feature-caption strong {
